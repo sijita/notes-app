@@ -93,8 +93,8 @@ export default function Aside({ notes }: { notes: INote[] }) {
         <AddModal />
       </div>
       <div className="flex flex-col gap-3 p-5 border-t h-full">
-        {notes.map((note) => (
-          <NotesLink note={note} key={note.id} />
+        {notes.map(({ id, title }) => (
+          <NotesLink id={id || ""} title={title} key={id} />
         ))}
         <div className="mt-auto flex flex-col gap-5">
           <Select

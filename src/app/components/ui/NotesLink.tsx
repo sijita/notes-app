@@ -6,12 +6,11 @@ import MyButton from "./MyButton";
 import { useMenuStore } from "@/app/store/menuStore";
 
 export default function NotesLink({
-  note,
+  id,
+  title,
 }: {
-  note: {
-    id: string;
-    title: string;
-  };
+  id: string;
+  title: string;
 }) {
   const { push } = useRouter();
   const pathname = usePathname();
@@ -20,15 +19,15 @@ export default function NotesLink({
   return (
     <MyButton
       color="default"
-      variant={pathname.includes(note.id) ? "flat" : "light"}
+      variant={pathname.includes(id) ? "flat" : "light"}
       type="button"
       className={`justify-between gap-5`}
       onClick={() => {
-        push(`/dashboard/${note.id}`);
+        push(`/dashboard/${id}`);
         setMenu(false);
       }}
     >
-      <span className="text-base truncate w-40 text-start">{note.title}</span>
+      <span className="text-base truncate w-40 text-start">{title}</span>
       <IconChevronRight size={20} />
     </MyButton>
   );
