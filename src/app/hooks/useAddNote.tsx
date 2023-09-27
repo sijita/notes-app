@@ -1,10 +1,10 @@
 import toast from "react-hot-toast";
 import { useNoteStore } from "../store/noteStore";
 import { INote } from "../types/types";
-import axios from "../utils/axios";
 import { useSession } from "next-auth/react";
 import { ISession } from "../types/types";
 import { useRouter } from "next/navigation";
+import axios from 'axios';
 
 export default function useAddNote() {
   const router = useRouter();
@@ -29,7 +29,7 @@ export default function useAddNote() {
 
     try {
       toastLoading = toast.loading("Cargando...");
-      const res = await axios.post("notes", {
+      const res = await axios.post("/api/notes", {
         title,
         content,
         userId: mySession.user.id,

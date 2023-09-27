@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import axios from "../utils/axios";
+import axios from 'axios';
 import { useRouter } from "next/navigation";
 
 export default function useDeleteNote() {
@@ -10,7 +10,7 @@ export default function useDeleteNote() {
     let toastLoading;
     try {
       toastLoading = toast.loading("Cargando...");
-      const res = await axios.delete(`notes/${id}`);
+      const res = await axios.delete(`/api/notes/${id}`);
 
       toast.dismiss(toastLoading);
       router.refresh();

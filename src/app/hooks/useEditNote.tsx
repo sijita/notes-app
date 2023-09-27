@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 import { useNoteStore } from "../store/noteStore";
-import axios from "../utils/axios";
+import axios from 'axios';
 import { useRouter } from "next/navigation";
 
 export default function useEditNote() {
@@ -20,7 +20,7 @@ export default function useEditNote() {
 
     try {
       toastLoading = toast.loading("Cargando...");
-      const res = await axios.put(`notes/${id}`, {
+      const res = await axios.put(`/api/notes/${id}`, {
         title,
         content,
       });

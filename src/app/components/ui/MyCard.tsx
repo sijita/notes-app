@@ -6,7 +6,6 @@ import {
   CardHeader,
   Divider,
 } from "@nextui-org/react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function MyCard({

@@ -1,5 +1,5 @@
 import { useUserStore } from "../store/userStore";
-import axios from "../utils/axios";
+import axios from 'axios';
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { IUser } from "../types/types";
@@ -28,7 +28,7 @@ export default function useSignup() {
     try {
       toastLoading = toast.loading("Cargando...");
 
-      const res = await axios.post("auth/signup", {
+      const res = await axios.post("/api/auth/signup", {
         email,
         username,
         password,
