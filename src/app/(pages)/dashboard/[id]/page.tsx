@@ -10,11 +10,15 @@ export default async function page({ params }: { params: any }) {
     },
   });
 
+  if (!note) {
+    return null;
+  }
+
   return (
     <div className="flex flex-col w-full h-full">
-      <Header id={id} titleValue={note!.title} buttons />
+      <Header id={id} titleValue={note.title} buttons />
       <div className="p-5 rounded-lg h-full min-h-screen">
-        <MyTextArea value={note!.content} />
+        <MyTextArea value={note.content} />
       </div>
     </div>
   );
